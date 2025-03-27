@@ -60,7 +60,7 @@ public class Subtraction
 public class Multiplication
 {
     [TestMethod]
-    public void Subtract_Valid_Wilson()
+    public void Multiply_Valid_Wilson()
     {
         Assert.AreEqual(1, Program.Multiply("1", "1"));
         Assert.AreEqual(4, Program.Multiply("2", "2"));
@@ -68,7 +68,7 @@ public class Multiplication
     }
 
     [TestMethod]
-    public void Subtract_Invalid_Wilson()
+    public void Multiply_Invalid_Wilson()
     {
         Assert.ThrowsException<FormatException>(() => Program.Multiply("1", "a"));
         Assert.ThrowsException<FormatException>(() => Program.Multiply("a", "1"));
@@ -76,10 +76,37 @@ public class Multiplication
     }
 
     [TestMethod]
-    public void Subtract_Null_Wilson()
+    public void Multiply_Null_Wilson()
     {
         Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply("1", null));
         Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, "1"));
         Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, null));
+    }
+}
+[TestClass]
+public class Divide
+{
+    [TestMethod]
+    public void Divide_Valid_Wilson()
+    {
+        Assert.AreEqual(1, Program.Divide("1", "1"));
+        Assert.AreEqual(2, Program.Divide("4", "2"));
+        Assert.AreEqual(4, Program.Divide("12", "3"));
+    }
+
+    [TestMethod]
+    public void Divide_Invalid_Wilson()
+    {
+        Assert.ThrowsException<FormatException>(() => Program.Divide("1", "a"));
+        Assert.ThrowsException<FormatException>(() => Program.Divide("a", "1"));
+        Assert.ThrowsException<FormatException>(() => Program.Divide("a", "a"));
+    }
+
+    [TestMethod]
+    public void Divide_Null_Wilson()
+    {
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Divide("1", null));
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, "1"));
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, null));
     }
 }
