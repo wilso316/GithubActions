@@ -110,3 +110,30 @@ public class Divide
         Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, null));
     }
 }
+[TestClass]
+public class Power
+{
+    [TestMethod]
+    public void Power_Valid_Wilson()
+    {
+        Assert.AreEqual(2, Program.Power("2", "1"));
+        Assert.AreEqual(9, Program.Power("3", "2"));
+        Assert.AreEqual(27, Program.Power("3", "3"));
+    }
+
+    [TestMethod]
+    public void Power_Invalid_Wilson()
+    {
+        Assert.ThrowsException<FormatException>(() => Program.Power("1", "a"));
+        Assert.ThrowsException<FormatException>(() => Program.Power("a", "1"));
+        Assert.ThrowsException<FormatException>(() => Program.Power("a", "a"));
+    }
+
+    [TestMethod]
+    public void Power_Null_Wilson()
+    {
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Power("1", null));
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, "1"));
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, null));
+    }
+}
