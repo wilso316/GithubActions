@@ -55,3 +55,31 @@ public class Subtraction
         Assert.ThrowsException<ArgumentNullException>(() => Program.Subtract(null, null));
     }
 }
+
+[TestClass]
+public class Multiplication
+{
+    [TestMethod]
+    public void Subtract_Valid_Wilson()
+    {
+        Assert.AreEqual(1, Program.Multiply("1", "1"));
+        Assert.AreEqual(4, Program.Multiply("2", "2"));
+        Assert.AreEqual(12, Program.Multiply("3", "4"));
+    }
+
+    [TestMethod]
+    public void Subtract_Invalid_Wilson()
+    {
+        Assert.ThrowsException<FormatException>(() => Program.Multiply("1", "a"));
+        Assert.ThrowsException<FormatException>(() => Program.Multiply("a", "1"));
+        Assert.ThrowsException<FormatException>(() => Program.Multiply("a", "a"));
+    }
+
+    [TestMethod]
+    public void Subtract_Null_Wilson()
+    {
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply("1", null));
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, "1"));
+        Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, null));
+    }
+}
